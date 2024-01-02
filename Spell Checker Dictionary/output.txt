@@ -1,0 +1,1 @@
+this challenge will introduce you to the basis of spell checking the objective is to build a solution that allows the detection and the correction of spelling mistakes in the english language most common speking mistakes occur for the following reasons eletion replacement transposition and insertion we limit the scope of this project to alphabetical character only

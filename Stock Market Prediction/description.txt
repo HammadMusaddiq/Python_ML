@@ -1,0 +1,75 @@
+
+Learning outcomes (form definitive module document)
+
+1. Demonstrate the knowledge and understanding of advanced machine learning methods, and their effectiveness for the analysis of numerical data.
+
+2. Be able to critically evaluate the research paeprs and methodologies
+
+3. Demonstrate knowledge and understanding of a range of neural networks as models of neural computation.
+
+4. Be able to work as a part of a team to achieve computer data analysis task at a professional and equivalent level.
+
+Assignment Tasks:
+
+Stock market prediction and financial analysis using Keras
+
+1. Analysis of stock data: (seasons, volatility, and non-stationary nature)
+
+2. Application of keras: Data preprocessing, training, and forecasting
+
+Data:
+
+Select a specific company's stock or a general stock index, from Yahoo finance API using yfinance. 
+
+Stock market prediction with keras and deep learning, backed by a review of relevant scientific literature. 
+
+Submission:
+
+Describe one specific model architecture in keras used for stock analysis
+
+Highlight any preprocessing technique used before feeding into the model
+
+Consider potential economics, technological, and ethical implications of using AI for stock prediction
+
+1.  Create Slide presentation
+
+Slides of 10 pages detailing your findings
+Introduction to the chosen stock/company
+A brief overview of LSTM and their suitability for stock data
+Preprocessing techniques applied
+The LSTM architecture and parameters choosen
+Results and Prediciton from the model
+Limitation and Potential areas of improvement
+
+2. Colab Notebook
+Well-commented, each steps are clear and replicalbe
+Include sections for data loading, preprocessing, model definition, training, prediction, and evaluation
+
+Note: Each group should submit one slide presentation in pdf format, and shareable link to your colab notebook.
+
+Marking:
+
+Based on 
+1. The depth of the analysis, 
+2. Your understanding of methodology
+3. How well you present the context and conclusions
+4. Quality of references 
+5. Overall quality of your presentation
+
+
+Overall Marking
+
+10 - Problem statement and presentation
+10 - Exploratory Data Analysis
+10 - Model Implementation
+10 - Forecase Performance
+
+Total: 40 Marks
+
+
+
+
+
+
+
+

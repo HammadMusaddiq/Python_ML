@@ -1,0 +1,45 @@
+Model Architecture Overview:
+The chosen model architecture is a convolutional neural network (CNN) with three convolutional layers followed by max-pooling layers for feature extraction.
+The first convolutional layer consists of 32 filters with a 3x3 kernel and ReLU activation. This layer takes input images with a shape of (32, 32, 3).
+Following the convolutional layers, max-pooling layers with a 2x2 pool size are applied to reduce spatial dimensions.
+The second convolutional layer has 64 filters, and the third convolutional layer has 128 filters, both with ReLU activation.
+After feature extraction, a flatten layer is used to convert the 2D feature maps into a 1D vector.
+Two fully connected layers are added for classification: a hidden layer with 128 neurons and ReLU activation, and an output layer with 100 neurons using softmax activation to produce class probabilities.
+Model Specialty:
+
+The model is designed to handle image classification tasks with noisy labels, which means that some labels in the dataset may be incorrect.
+Convolutional layers are chosen for their ability to automatically learn relevant features from the images, making the model robust to variations in appearance.
+
+
+Training and Testing Accuracy:
+
+Training and Validation Accuracy Plot:
+
+The model was trained over 100 epochs using the training dataset, and its performance was evaluated on the validation dataset.
+The training accuracy steadily increased with each epoch, indicating that the model was learning from the training data.
+The validation accuracy also showed an increasing trend, suggesting that the model generalized well to unseen data.
+The final validation accuracy was approximately [insert accuracy value here].
+
+Analysis:
+The increasing training and validation accuracy suggest that the model was able to learn the underlying patterns in the noisy dataset.
+However, further analysis is required to assess overfitting and generalization on unseen test data.
+
+
+
+Ideas for Improvement:
+
+Data Augmentation: Apply data augmentation techniques such as random rotations, flips, and translations to increase the diversity of the training dataset and improve model robustness.
+
+Architectural Modifications: Experiment with different CNN architectures, including deeper networks or architectures like ResNet or Inception, which may capture more complex features.
+
+Regularization: Implement dropout or L2 regularization to reduce overfitting, especially if the model shows signs of high variance.
+
+Label Noise Handling: Explore label noise reduction techniques, such as robust loss functions like the symmetric cross-entropy loss, to mitigate the impact of noisy labels.
+
+Hyperparameter Tuning: Fine-tune hyperparameters such as learning rate, batch size, and optimizer to optimize training and convergence.
+
+Ensemble Learning: Combine predictions from multiple models (ensemble learning) to improve accuracy and reduce the risk of overfitting.
+
+Class Balancing: Address class imbalance by using techniques like oversampling or weighting classes to ensure the model learns from all classes effectively.
+
+By implementing these ideas and conducting further experiments, we aim to enhance the model's accuracy and robustness for the image classification task with noisy labels on the CIFAR-100 dataset.

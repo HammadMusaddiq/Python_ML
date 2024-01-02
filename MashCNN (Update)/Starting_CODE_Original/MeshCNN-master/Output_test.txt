@@ -1,0 +1,15 @@
+python3.7 test.py --dataroot datasets/shrec_16 --name shrec16 --ncf 64 128 256 256 --pool_res 600 450 300 180 --norm group --resblocks 1 --export_folder meshes 
+tensorboard X not installed, visualizing wont be available
+Running Test
+loaded mean / std from cache
+loading the model from ./checkpoints\shrec16\latest_net.pth
+tensorboard X not installed, visualizing wont be available
+C:\Users\Hammad\AppData\Local\Programs\Python\Python37\lib\site-packages\numpy\lib\npyio.py:719: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray.
+  val = np.asanyarray(val)
+tensorboard X not installed, visualizing wont be available
+tensorboard X not installed, visualizing wont be available
+C:\Users\Hammad\AppData\Local\Programs\Python\Python37\lib\site-packages\numpy\lib\npyio.py:719: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray.
+  val = np.asanyarray(val)
+C:\Users\Hammad\AppData\Local\Programs\Python\Python37\lib\site-packages\numpy\lib\npyio.py:719: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray.
+  val = np.asanyarray(val)
+epoch: -1, TEST ACC: [100.0 %]

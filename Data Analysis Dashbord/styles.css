@@ -1,0 +1,9 @@
+.custom-link {
+    color: blue;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.custom-link:hover {
+    color: red;
+}
