@@ -1,0 +1,1 @@
+This challenge will introduce you to the basics of Spell Checking. The objective is to build a solution that allows the detection and the correction of spelling mistakes in the Englishh language. Most common speling mistakes occur for the following reasons: Deletion, Replacement, Transposition and Insertion. We limit the scopee of this project to alphabetical character only.

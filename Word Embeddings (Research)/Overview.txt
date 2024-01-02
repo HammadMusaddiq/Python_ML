@@ -1,0 +1,83 @@
+Implemented Paper: Debiasing Word Embeddings with Nonlinear Geometry (2022)
+.https://arxiv.org/pdf/2208.13899.pdf
+.Drive link which contain All code, dataset and implementation: https://drive.google.com/drive/folders/1wUj7Dl9a6vRGyKIEUndQrpr-5irg7TE8?usp=share_link
+(but let me know you this code used w2v, we will use this code for Downstream tasks such as Toxicity detection and on three others tasks ( POS NER, POS TAGGING, POS CHUNKING)
+.Toxicity detection Dataset : jigsaw-unintended-bias-in-toxicity-classification also presented in thid Drive.
+
+
+Paper 2: Black is to Criminal as Caucasian is to Police: Detecting and Removing Multiclass Bias in Word Embeddings (2019) (that support Paper no 1)
+
+
+
+Paper 3: Thesis paper (Base Paper) : https://www.researchgate.net/publication/367562125_Comparing_Methods_for_Mitigating_Gender_Bias_in_Word_Embedding (2023)
+.dataset and code (Github Link): https://github.com/clarabiagi/Gender-Bias-Thesis
+.Thesis : https://github.com/clarabiagi/Thesis
+.Debiasing Tecniques : Hard-Debias (HARD) method (Bolukbasi et al., 2016)
+Gender-Neutral GloVe (GN-GloVe) method (Zhao et al., 2018)
+Gender-Preserving GloVe (GP-GloVe) method (Kaneko and Bollegala, 2019)
+Half-Sibling Regression (HSR) method (Yang and Feng, 2019)
+Double-Hard Debias (DHD) method (Wang et al., 2020)
+Repulsion-Attraction-Neutralisation (RAN) method (Kumar et al., 2020)
+GP-GN-GloVe and HSR-RAN-GloVe methods
+
+.To compare all the methods, the following measures have been considered and are described later:
+(1) Average direct bias (Bias)
+(2) 5 tasks presented by Gonen and Golbderg in Lipstick on a pig_debiasing methods cover up systematic gender bias in word embedding (Bias)
+(3)SemBias data set, presented by Zhao et al., (Sembias)
+(4) word similarity tasks (WS_STS)
+(5) semantic textual similarity tasks
+
+.Quantifying gender bias: Word Embedding Association Test (WEAT)
+SemBias Anaology test 
+Word Similarity 
+Semantic Textual Similarity (STS)
+
+.Gender bias word relation task performance: 
+Clustering, Correlation, Profession, Classification, Association, (Here we will add our 2 task from Paper 1 (Toxicity detection and POS NER, POS TAGGING, POS CHUNKING)
+
+
+
+
+Paper 4:"Thy algorithm shalt not bear false witness": An Evaluation of Multiclass Debiasing Methods on Word Embeddings (2020)
+.Github link : https://github.com/thaleaschlender/An-Evaluation-of-Multiclass-Debiasing-Methods-on-Word-Embeddings
+
+.Debiasing approaches:
+Conceptor Debiasing
+Hard Debiasing
+softWEAT
+
+.Evaluation Metrics:
+Relative Negative Sentiment Bias(RNSB) Metric
+Mean Average Cosine Similarity (MAC) Metric
+Word Association Evaluation Test (WEAT) effect size Metric
+
+The word association data is not in code. 
+
+
+
+
+Paper 5: Joint-Multiclass-Debiasing-of-Word-Embeddings (2020)
+Gihub Link : https://github.com/RadomirPopovicFON/Joint-Multiclass-Debiasing-of-Word-Embeddings
+Debiasing approaches:
+HardWeat
+softWEAT
+
+
+Paper 6: Reproducing the results of Double-Hard Debias: Tailoring Word Embeddings for Gender Bias Mitigation (ACL 2020)
+Github Code Link: https://github.com/hassiahk/MLRC-2020-Double-Hard-Debias
+Dataset: Gender
+
+
+
+paper 7: Learning Bias-reduced Word Embeddings Using Dictionary Definitions (2022)
+Github code: https://github.com/haozhe-an/dd-glove
+Dataset: Gender, race, religion
+
+Paper 8  (Task->POS Tagging)
+Word Embeddings via Causal Inference: Gender Bias Reducing and Semantic Information Preserving.
+
+
+Paper 9: basically it is a thesis, and canbe a idea regarding "POLITICAL BIAS"Analyzing Twitter data to discover gender biases in Spanish politics
+
+
+
