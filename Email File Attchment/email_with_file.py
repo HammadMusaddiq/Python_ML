@@ -19,8 +19,8 @@ Best wishes & Regards<br>
 Hammad<br>
 """
 
-sender_email = "hammadmusaddiq@gmail.com"
-receiver_email = ["hammadmusaddiq17@gmail.com", "hammad_amin96@hotmail.com"] # you can add multiple emails in this list using comma's in bettween
+sender_email = "hammadm@gmail.com"
+receiver_email = ["hammad1@gmail.com", "hammad@hotmail.com"] # you can add multiple emails in this list using comma's in bettween
 
 cc_email = []
 bcc_email = []
