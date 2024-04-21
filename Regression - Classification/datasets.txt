@@ -1,0 +1,24 @@
+Climate Data Online (NOAA) - https://www.ncdc.noaa.gov/cdo-web/datasets
+Breast Cancer (UCI), classification - https://archive.ics.uci.edu/ml/datasets/breast+cancer+wisconsin+(original)
+Abalone (UCI), classification - https://archive.ics.uci.edu/ml/datasets/Abalone
+Census Income Data Set (UCI), classification - https://archive.ics.uci.edu/ml/datasets/Census+Income
+Plants (UCI), clustering - https://archive.ics.uci.edu/ml/datasets/Plants
+MAGIC Gamma telescope Data Set (UCI), classification - https://archive.ics.uci.edu/ml/datasets/MAGIC+Gamma+Telescope
+Human Activity Recognition using smartphoes (UCI), classification/clustering - https://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+Apartment for rent classified Data Set (UCI), classification/regression/clustering - https://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+Air Quality Data Set (UCI), regression - https://archive.ics.uci.edu/ml/datasets/Air+Quality
+Mushroom (UCI), classification - https://archive.ics.uci.edu/ml/datasets/Mushroom
+Stock keeping units (UCI), clustering - https://archive.ics.uci.edu/ml/datasets/Stock+keeping+units
+Communities and Crime (UCI), regression - https://archive.ics.uci.edu/ml/datasets/Communities+and+Crime
+Dow Jones Index (UCI), classification/clustering - https://archive.ics.uci.edu/ml/datasets/Dow+Jones+Index
+Sales Transactions Weekly Data set (UCI), clustering - https://archive.ics.uci.edu/ml/datasets/Sales_Transactions_Dataset_Weekly
+Basketball dataset (UCI), classification - https://archive.ics.uci.edu/ml/datasets/Basketball+dataset
+Football data set - https://datahub.io/sports-data/english-premier-league
+Jurassic Park - The exhaustive Dinosaur Dataset (Kaggle) - https://www.kaggle.com/datasets/kjanjua/jurassic-park-the-exhaustive-dinosaur-dataset
+Dinosaur List (Kaggle) - https://www.kaggle.com/datasets/kumazaki98/dinosaur-list
+Premier League Match Data (Kaggle) - https://www.kaggle.com/datasets/evangower/premier-league-match-data
+
+
+Project ideas:
+https://www-users.cse.umn.edu/~kumar001/dmbook/projects.htm
+https://www.inf.ed.ac.uk/teaching/courses/dme/html/datasets0405.html
