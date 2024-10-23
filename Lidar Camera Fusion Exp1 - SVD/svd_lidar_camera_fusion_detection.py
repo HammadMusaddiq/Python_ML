@@ -5,21 +5,11 @@ from torch.utils.data import DataLoader
 import torch.nn.functional as F
 import torchvision.transforms as transforms
 import numpy as np
+import argparse
 
 from kitti_dataset import KittiDataset
 from sf_model import SensorFusionModel
 from svd_sf_model import SensorFusionModelwithSVD
-
-
-DATASET_PATH = 'kitti_data'
-model = SensorFusionModel()
-model_with_svd = SensorFusionModelwithSVD()
-
-# Define transforms
-transform = transforms.Compose([
-    transforms.ToTensor(),
-    transforms.Resize((224, 224)),
-])
 
 def load_kitti_annotations(annotation_path):
     annotations = []
@@ -54,17 +44,6 @@ def load_kitti_data(base_path, indices):
         
     return lidar_data, camera_images, annotations
 
-
-# Load data for example indices
-indices = range(50)
-base_path = 'kitti_data'
-lidar_data, camera_images, annotations = load_kitti_data(base_path, indices)
-
-# Create dataset and dataloader
-dataset = KittiDataset(lidar_data, camera_images, annotations, transform=transform)
-dataloader = DataLoader(dataset, batch_size=4, shuffle=True)
-
-
 # Separate the dataset into Car, Truck, and None subsets
 def separate_classes(dataset):
     car_indices = []
@@ -83,9 +62,6 @@ def separate_classes(dataset):
             none_indices.append(idx)
     
     return car_indices, truck_indices, none_indices
-
-car_indices, truck_indices, none_indices = separate_classes(dataset)
-print(car_indices, truck_indices)
 
 # Split the data into train and test sets
 def split_data(car_indices, truck_indices, none_indices, train_ratio=0.8):
@@ -113,54 +89,11 @@ def split_data(car_indices, truck_indices, none_indices, train_ratio=0.8):
     
     return train_indices, test_indices
 
-train_indices, test_indices = split_data(car_indices, truck_indices, none_indices, train_ratio=0.8)
-
 # Create train and test subsets
 def create_subsets(dataset, train_indices, test_indices):
     train_dataset = torch.utils.data.Subset(dataset, train_indices)
     test_dataset = torch.utils.data.Subset(dataset, test_indices)
     return train_dataset, test_dataset
-
-train_dataset, test_dataset = create_subsets(dataset, train_indices, test_indices)
-
-# Create DataLoaders
-train_dataloader = DataLoader(train_dataset, batch_size=4, shuffle=True)
-test_dataloader = DataLoader(test_dataset, batch_size=4, shuffle=True)
-
-# Verify the label distribution in train and test datasets
-found_train = False
-try:
-    for _, _, labels in train_dataset:
-        val = labels[1]
-        for i in val:
-            if i == 2:
-                found_train = True
-                raise Exception("Found a label with value 2 in train dataset.")
-except Exception:
-    pass
-
-if found_train:
-    print("Train dataset contains Truck.")
-
-found_test = False
-try:
-    for _, _, labels in test_dataset:
-        val = labels[1]
-        for i in val:
-            if i == 2:
-                found_test = True
-                raise Exception("Found a label with value 2 in test dataset.")
-except Exception:
-    pass
-
-if found_test:
-    print("Test dataset contains Truck.")
-
-# Print sizes
-print(f"Total dataset size: {len(dataset)}")
-print(f"Train dataset size: {len(train_dataset)}")
-print(f"Test dataset size: {len(test_dataset)}")
-
 
 def loss_fn(predictions, bbox_targets, class_targets):
     # Extract predicted bounding boxes and class scores
@@ -287,12 +220,6 @@ def evaluate_model(model, dataloader):
     print(f'Accuracy: {accuracy:.4f}')
     print(f'Loss: {average_loss:.4f}')
     
-    # Debug prints
-    # print("Sample IoUs: ", calculate_iou(all_pred_boxes[:10], all_gt_boxes[:10]))
-    # print("Sample Pred BBoxes: ", all_pred_boxes[:10])
-    # print("Sample GT BBoxes: ", all_gt_boxes[:10])
-    # print("Sample Pred Scores: ", all_pred_scores[:10])
-    
     return mAP, accuracy, average_loss
 
 def train_model(model, train_dataloader, val_dataloader, optimizer, num_epochs=3):
@@ -325,11 +252,57 @@ def train_model(model, train_dataloader, val_dataloader, optimizer, num_epochs=3
         print(f'Validation Accuracy: {val_accuracy:.4f}')
         print(f'Validation Loss: {val_loss:.4f}')
 
+def main(model_type):
 
-print("Training Lidar-Camera Model")
-optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
-train_model(model, train_dataloader, test_dataloader, optimizer, num_epochs=10)
+    # Load data for example indices
+    indices = range(50)
+    base_path = 'kitti_data'
+    lidar_data, camera_images, annotations = load_kitti_data(base_path, indices)
 
-print("Training Lidar-Camera Model with SVD")
-svd_optimizer = torch.optim.Adam(model_with_svd.parameters(), lr=0.001)
-train_model(model_with_svd, train_dataloader, test_dataloader, svd_optimizer, num_epochs=10)
+    # Define transforms
+    transform = transforms.Compose([
+        transforms.ToTensor(),
+        transforms.Resize((224, 224)),
+    ])
+
+    # Create dataset and dataloader
+    dataset = KittiDataset(lidar_data, camera_images, annotations, transform=transform)
+
+    car_indices, truck_indices, none_indices = separate_classes(dataset)
+    train_indices, test_indices = split_data(car_indices, truck_indices, none_indices, train_ratio=0.8)
+    # print(car_indices, truck_indices)
+
+    train_dataset, test_dataset = create_subsets(dataset, train_indices, test_indices)
+
+    # Print sizes   
+    print(f"Total dataset size: {len(dataset)}")
+    print(f"Train dataset size: {len(train_dataset)}")
+    print(f"Test dataset size: {len(test_dataset)}")
+    
+    # Initialize the dataloaders
+    train_dataloader = DataLoader(train_dataset, batch_size=4, shuffle=True)
+    test_dataloader = DataLoader(test_dataset, batch_size=4, shuffle=True)
+
+    # Initialize the model based on the input argument
+    if model_type == 'baseline':
+        model = SensorFusionModel()
+        optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
+        print("Training Lidar-Camera Model")
+        train_model(model, train_dataloader, test_dataloader, optimizer, num_epochs=10)
+
+    elif model_type == 'svd':
+        model_with_svd = SensorFusionModelwithSVD()
+        svd_optimizer = torch.optim.Adam(model_with_svd.parameters(), lr=0.001)
+        print("Training Lidar-Camera Model with SVD")
+        train_model(model_with_svd, train_dataloader, test_dataloader, svd_optimizer, num_epochs=10)
+
+    else:
+        print("Invalid model type specified. Choose either 'baseline' or 'svd'.")
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Train 3D Object Detection Models')
+    parser.add_argument('--model', type=str, required=True, choices=['baseline', 'svd'],
+                        help='Specify the model type to train (baseline or svd)')
+    args = parser.parse_args()
+    
+    main(args.model)
